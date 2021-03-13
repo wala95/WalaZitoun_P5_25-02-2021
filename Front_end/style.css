@@ -1,0 +1,16 @@
+
+#logo {  
+    width: 100px;
+    height: 100px;
+}
+nav, footer {
+    background-color: #f3e9f1;
+    
+}
+#jumbotron {
+    background-color: #d7aace;
+}
+#sommaire {
+    background-color: rgb(245, 243, 243);
+}
+
