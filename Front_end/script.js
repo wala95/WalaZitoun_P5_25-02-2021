@@ -1,11 +1,8 @@
  "use strict";
+
+// PAGE D'ACCUEIL // 
  //  pointer sur l'objet DOM correspondant à la balise img dont l'id est 'first_teddy' 
 const teddiesUrl = 'http://127.0.0.1:3000/api/teddies';
-
-// const teddyImage = document.getElementById('teddyImage');
-// const teddyName = document.getElementById('teddyName');
-// const teddyPrice = document.getElementById('teddyPrice');
-// const teddyColors = document.getElementById('teddyColors');
 
 function creatArticle(urlImage, nom, price, listColor, link){
 
@@ -14,7 +11,6 @@ function creatArticle(urlImage, nom, price, listColor, link){
   newImage.classList.add("card-img-top");
   
   
-
   let newName = document.createElement('h2');
   newName.textContent = nom;
   newName.classList.add("card-title")
@@ -58,11 +54,7 @@ function creatArticle(urlImage, nom, price, listColor, link){
   return newArticle;
 }
 
-//// block 1 article
-
 let section = document.getElementById("sectionForArtticles")
-
-
   
 // envoyer une requette GET à l'API(web service) sur l'URL teddiesUrl pour récupérer les données 
 // Le retour de la méthode fetch une est Promise 
@@ -83,13 +75,6 @@ fetch(teddiesUrl)
 
 // prendre l'imageUrl du premier element de l'array json et le seter dans src de l'img 
 
-  // .then (data => {
-  //   teddyImage.src = data[0].imageUrl;
-  //   teddyName.textContent = data[0].name;
-  //   teddyPrice.textContent = `${data[0].price/100} €` ;
-  //   teddyColors.textContent = `${data[0].colors.length} Couleurs disponibles`;
-  // })
-
   .then (teddiesList => {
         for (let teddy of teddiesList){ 
           let articleActuel = creatArticle(teddy.imageUrl, teddy.name, `${teddy.price/100} €`, `${teddy.colors.length} Couleurs disponibles`, `${teddiesUrl}/${teddy._id}`);
@@ -97,9 +82,4 @@ fetch(teddiesUrl)
   }})
 
   .catch(erreurCatche => console.log(`il y a une erreur ${erreurCatche.message}`));
- 
-
-
- 
-
 

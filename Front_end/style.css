@@ -1,16 +1,57 @@
-
 #logo {  
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 nav, footer {
-    background-color: #f3e9f1;
-    
+  background-color: #f3e9f1;
+  
 }
 #jumbotron {
-    background-color: #d7aace;
+  background-color: #d7aace;
+}
+#alert {
+  background-color:#f3e9f1;
+  color: #ba45a3;
 }
 #sommaire {
-    background-color: rgb(245, 243, 243);
+  background-color: rgb(245, 243, 243);
+}
+article {
+  padding-top: 25px;
 }
 
+@media screen and (min-width: 1400px) {
+  img {
+    height: 275px;
+  }
+  }
+@media screen and (max-width: 1400px) {
+  img {
+    height: 235px;
+  }
+}
+@media screen and (max-width: 1200)  {
+  img {
+    height: 190px;
+  }
+}
+@media screen and (max-width: 990px)  {
+  img {
+    height: 460px;
+  }
+} 
+@media screen and (min-width: 575px) and (max-width: 765px)  {
+  img {
+    height: 340px;
+  }
+} 
+
+
+
+
+@media screen and (min-width: 1000px)  {
+  
+  #wala {
+    margin: auto;
+  }
+}

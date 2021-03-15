@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco</title>
+    <link rel="stylesheet" href="style.css" type='text/css' />
+    <script src="fiche-produit.js" type='text/javascript' defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="container-fluid ">
+        <div class="row ">
+            
+            <div class="col navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand " href="Orinoco_Page_Accueil.html">
+                    <img src="images/logo.png" alt="Site logo" id="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarContent" class="collapse navbar-collapse ">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item active ">
+                            <a class="nav-link " href="Orinoco_Page_Accueil.html">Accueil</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- BODY -->
+    <main>
+        <section class="container">
+            <a href="index.html" >Revenir vers la page d'accueil</a>
+            <div class="row  ">
+                <div class="col-12 col-lg-6" id="wala" >
+                    <img src="" alt="photo du produit" class="img-thumbnail " id="teddyImage">
+                </div>
+            
+                <div class="col-12 col-lg-6 ">
+                    <h1 id="teddyName">NOM</h1>
+                    <p id="teddyPrice">prix</p>
+                    <p class="card-text" id="teddyDescription">DESCRIPTION</p>
+                    <div class="form-group">
+                        <label for="Quantité">Quantité</label><br>
+                        <input id="spinner" type="number" min="0" step="1" inputmode="decimal" class="form-control"/>
+                    </div><br>
+                    <div class="form-row align-items-center">
+                    <div class="form-group" >
+                        <label for="Couleurs">Couleurs disponibles</label>
+                        <select class="form-control" id="exampleFormControlSelect1" id="teddyColors" class="border border-gray rounded">
+                            <option>couleur 1</option>
+                            <option>couleur 2</option>
+                        </select>
+                    </div><br>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block w-100 clearfix">Ajouter au panier</button>
+                    <div class="alert alert-success" role="alert" id="alert">
+                        <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        <h4 class="alert-heading text-center ">Bravo! Votre produit a bien été ajouté au panier
+                            
+                        </h4>
+                        
+                        <p></p>
+                        <hr>
+                        <button type="button" class="btn btn-light ">Afficher mon panier</button>
+                        
+                      </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="container-fluid ">
+        <div class="row">
+            <div class="col ">
+                <p>Adresse</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+
+</html>
