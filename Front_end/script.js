@@ -4,7 +4,7 @@
  //  pointer sur l'objet DOM correspondant à la balise img dont l'id est 'first_teddy' 
 const teddiesUrl = 'http://127.0.0.1:3000/api/teddies';
 
-function creatArticle(urlImage, nom, price, listColor, link){
+function creatArticle(urlImage, nom, price, listColor, button, link){
 
   let newImage = document.createElement('img');
   newImage.src = urlImage;
@@ -23,19 +23,20 @@ function creatArticle(urlImage, nom, price, listColor, link){
   newListColors.textContent = listColor;
   newListColors.classList.add("card-text");
 
-  let newLink = document.createElement('a');
-  newLink.href = link;
-  newLink.classList.add("btn", "btn-secondary");
-  newLink.setAttribute('role', 'button')
-  newLink.textContent = 'Ajouter au panier'
+  let newButton = document.createElement('a');
+  newButton.href = button;
+  newButton.classList.add("btn", "btn-secondary");
+  newButton.setAttribute('role', 'button')
+  newButton.textContent = 'Ajouter au panier'
 
   let newCardBodyDiv = document.createElement('div');
   newCardBodyDiv.classList.add("card-body");
 
+
   newCardBodyDiv.appendChild(newName);
   newCardBodyDiv.appendChild(newPrice);
   newCardBodyDiv.appendChild(newListColors);
-  newCardBodyDiv.appendChild(newLink);
+  newCardBodyDiv.appendChild(newButton);
 
   let newCardDiv = document.createElement('div');
   newCardDiv.classList.add("card", "text-center");
@@ -44,12 +45,17 @@ function creatArticle(urlImage, nom, price, listColor, link){
   newCardDiv.appendChild(newImage);
   newCardDiv.appendChild(newCardBodyDiv);
 
+  let newLink = document.createElement('a');
+  newLink.href = link;
+  newLink.classList.add("link");
+
+  newLink.appendChild(newCardDiv);
   
   let newArticle= document.createElement('article');
   newArticle.classList.add("col-12", "col-lg-4");
 
   
-  newArticle.appendChild(newCardDiv);
+  newArticle.appendChild(newLink);
   
   return newArticle;
 }
@@ -77,7 +83,7 @@ fetch(teddiesUrl)
 
   .then (teddiesList => {
         for (let teddy of teddiesList){ 
-          let articleActuel = creatArticle(teddy.imageUrl, teddy.name, `${teddy.price/100} €`, `${teddy.colors.length} Couleurs disponibles`, `${teddiesUrl}/${teddy._id}`);
+          let articleActuel = creatArticle(teddy.imageUrl, teddy.name, `Prix : ${teddy.price/100} €`, `${teddy.colors.length} Couleurs disponibles`, `fiche_produit.html?produit=${teddy._id}`, `fiche_produit.html?produit=${teddy._id}`);
           section.appendChild(articleActuel) ;
   }})
 
