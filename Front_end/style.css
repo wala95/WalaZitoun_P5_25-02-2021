@@ -32,7 +32,11 @@ article {
   padding-top: 25px;
 }
 
-@media screen and (min-width: 1400px) {
+img {
+  height: 150px;
+  width: 250px;
+}
+/* @media screen and (min-width: 1400px) {
   img {
     height: 275px;
   }
@@ -56,7 +60,7 @@ article {
   img {
     height: 340px;
   }
-} 
+}  */
 
 
 

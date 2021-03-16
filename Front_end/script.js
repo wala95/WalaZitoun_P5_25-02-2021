@@ -27,7 +27,7 @@ function creatArticle(urlImage, nom, price, listColor, button, link){
   newButton.href = button;
   newButton.classList.add("btn", "btn-secondary");
   newButton.setAttribute('role', 'button')
-  newButton.textContent = 'Ajouter au panier'
+  newButton.textContent = 'Afficher plus'
 
   let newCardBodyDiv = document.createElement('div');
   newCardBodyDiv.classList.add("card-body");

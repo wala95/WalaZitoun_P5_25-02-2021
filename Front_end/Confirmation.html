@@ -14,22 +14,25 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="container-fluid " >
+    <nav class="container-fluid ">
         <div class="row ">
-            <div class="col navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand " href="Orinoco_Page_Accueil.html">
+            <div class="col navbar navbar-expand-lg navbar-light d-flex flex-row bd-highlight mb-2">
+                <a class="navbar-brand " href="index.html">
                     <img src="images/logo.png" alt="Site logo" id="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                 </button>
-                <div id="navbarContent" class="collapse navbar-collapse ">
-                    <ul class="navbar-nav ">
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarToggleExternalContent">
+                    <ul class="navbar-nav  ">
                         <li class="nav-item active ">
-                            <a class="nav-link " href="Orinoco_Page_Accueil.html">Accueil</a>
+                            <a class="nav-link  text-secondary " href="index.html">Accueil</a>
                         </li>
+                        <hr>
                         <li class="nav-item ">
-                            <a class="nav-link " href="#">Contact</a>
+                            <a class="nav-link  text-secondary" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -38,9 +41,9 @@
     </nav>
 
     <main>
-        <section class="thank-you padding-y-xxl">
+        <section class="thank-you padding-y-xxl text-center">
             <div class="container max-width-adaptive-sm text-center">
-              <svg class="thank-you__icon margin-bottom-sm" viewBox="0 0 80 80" aria-hidden="true"><g class="thank-you__icon-group"><circle fill="var(--color-success)" cx="40" cy="40" r="40"/><polyline points="21 41 33 53 59 27" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g></svg>
+              <svg class="thank-you__icon margin-bottom-sm" aria-hidden="true"><g class="thank-you__icon-group"><circle  cx="40" cy="40" r="40"/><polyline points="21 41 33 53 59 27" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g></svg>
           
               <div class="text-component">
                 <h1 class="text-xxxl">Merci pour votre commande !</h1>
