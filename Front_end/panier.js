@@ -5,6 +5,7 @@ function creatSection(urlImage, nom, Color, quantity, price, ){
 
     let newImage = document.createElement('img');
     newImage.src = urlImage;
+    newImage.id = "photoProduit";
     let newDiv1 = document.createElement('div');
     newDiv1.classList.add("col-3", "mx-auto");
     newDiv1.appendChild(newImage);

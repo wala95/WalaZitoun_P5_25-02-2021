@@ -18,7 +18,7 @@
         <div class="row ">
             <div class="col navbar navbar-expand-lg navbar-light d-flex flex-row bd-highlight mb-2">
                 <a class="navbar-brand " href="index.html">
-                    <img src="images/logo.png" alt="Site logo" id="logo">
+                    <img src="images/logo.png" alt="Site logo" id="logo1">
                 </a>
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -42,33 +42,44 @@
 
     <main>
         <section class="thank-you padding-y-xxl text-center">
-            <div class="container max-width-adaptive-sm text-center">
-              <svg class="thank-you__icon margin-bottom-sm" aria-hidden="true"><g class="thank-you__icon-group"><circle  cx="40" cy="40" r="40"/><polyline points="21 41 33 53 59 27" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g></svg>
-          
-              <div class="text-component">
-                <h1 class="text-xxxl">Merci pour votre commande !</h1>
-                <p class="color-contrast-medium">Bonjour name<br>
-                Votre commande a bien été comfirmée <br>
-                Nous vous remercions pour votre confiance et mettons dès à présent tout en oeuvre pour vous faire parvenir votre commande dans les plus brefs délais.
-                Voici le récapitulatif de votre commande :
-                </p>
-          
-                  <p class="flex flex-wrap flex-column flex-row@xs gap-xxs justify-center">
-                    <a class="btn btn--subtle" href="#0">Continue Shopping</a>
-                  </p>
-              </div>
+            <div class="container max-width-adaptive-sm mt-5">
+                <svg id="check" class="mb-4">
+                    <g class="thank-you__icon-group  ">
+                        <circle cx="40" cy="40" r="40"/>
+                        <polyline points="21 41 33 53 59 27" fill="none" stroke="#fff" stroke-miterlimit="10"
+                            stroke-width="2" />
+                    </g>
+                </svg>
+
+                <div class="text-component ">
+                    <h1 class="text-xxxl mb-5">Merci pour votre commande !</h1>
+                    <p class="color-contrast-medium w-75 mx-auto">Bonjour "NAME", <br>
+                        Votre commande numéro 0000 a bien été comfirmée. <br>
+                        Nous vous remercions pour votre confiance et mettons dès à présent tout en oeuvre pour vous
+                        faire parvenir votre commande dans les plus brefs délais.<br>
+                        Voici le récapitulatif de votre commande :
+                    </p>
+                    <ul class="text-sm flex flex-column gap-xxs">
+                        <li class="flex justify-between"><i>Numéro de commande : 0000</i></li>
+                        <li class="flex justify-between"><i>Prix total TTC : 0000</i></li>
+                    </ul>
+
+                    <a href="index.html"><button type="button"
+                        class="btn btn-secondary btn-lg w-50 clearfix m-4">Page d'accueil</button>
+                    </a>
+                
+                </div>
             </div>
-          </section>
-          
+        </section>
+
     </main>
 
 
 
-    <footer class="container-fluid " >
+    <footer class="container-fluid ">
         <div class="row">
             <div class="col ">
                 <p>Adresse</p>
             </div>
         </div>
     </footer>
-    

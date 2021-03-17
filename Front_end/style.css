@@ -10,9 +10,19 @@
 .link:hover {
   color: black;
 } 
+ul {
+  list-style:none;
+  }
+  li {
+  margin:15px;
+  }
+  #logo1 {  
+    width:  200px;
+    height: 70px;
+  }
 #logo {  
-  width:  200px;
-  height: 80px;
+  width:  100%;
+  height: auto;
 }
 nav, footer {
   background-color: #f3e9f1;
@@ -26,17 +36,13 @@ nav, footer {
   color: #ba45a3;
 }
 #sommaire {
-  background-color: rgb(245, 243, 243);
+  border-right: 8px silver double;
 }
 article {
   padding-top: 25px;
 }
 
-img {
-  height: 150px;
-  width: 250px;
-}
-/* @media screen and (min-width: 1400px) {
+@media screen and (min-width: 1400px) {
   img {
     height: 275px;
   }
@@ -60,7 +66,7 @@ img {
   img {
     height: 340px;
   }
-}  */
+} 
 
 
 
@@ -70,4 +76,14 @@ img {
   #wala {
     margin: auto;
   }
+}
+
+#photoProduit {
+  height: 150px;
+  width: 250px;
+}
+
+#check {
+  width: 80px;
+  height: 80px;
 }
