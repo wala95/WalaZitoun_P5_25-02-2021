@@ -64,18 +64,17 @@
                     <p class="text-success">En stock</p>
                     <p class="card-text" id="teddyDescription">DESCRIPTION</p>
                     <div class="form-group">
-                        <label for="Quantité">Quantité :</label><br>
-                        <input id="spinner" value="1" type="number" min="0" step="1" class="form-control" />
+                        <label for="quantite">Quantité :</label><br>
+                        <input id="quantite" value="1" type="number" min="1" step="1" class="form-control" />
                     </div><br>
                     <div class="form-row align-items-center">
                         <div class="form-group">
-                            <label for="Couleurs">Couleurs disponibles :</label>
-                            <select class="form-control" id="exampleFormControlSelect1"
+                            <label for="couleurs">Couleurs disponibles :</label>
+                            <select class="form-control" id="couleurs"
                                 class="border border-gray rounded">
-                                <option>Choisissez ici ...</option>
                             </select>
                         </div><br>
-                        <button type="button" class="btn btn-success btn-lg btn-block w-100 clearfix "
+                        <button type="button" class="btn btn-success btn-lg btn-block w-100 clearfix " id="buttonAdd"
                             data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter au panier</button>
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
