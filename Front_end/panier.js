@@ -1,8 +1,24 @@
 "use strict";
 
+function removeItem (idProduct){
 
-function creatSection(urlImage, nom, color, quantity, price) {
+let productsAdded = localStorage.getItem('basket');
 
+let productsArray = JSON.parse(productsAdded);
+
+  for(let item of productsArray){
+    if (idProduct == item.id) {
+      const index =  productsArray.indexOf(item);
+      productsArray.splice(index, 1);
+    }
+  }
+  localStorage.setItem('basket', JSON.stringify(productsArray));
+  document.location.reload();
+
+}
+
+function creatSection(id, urlImage, nom, color, quantity, price) {
+ 
   let newImage = document.createElement('img');
   newImage.src = urlImage;
   newImage.id = "photoProduit";
@@ -23,20 +39,22 @@ function creatSection(urlImage, nom, color, quantity, price) {
   newDiv3.classList.add("col-lg-1", "text-center");
   newDiv3.appendChild(newColor);
 
-  let newInput = document.createElement('input');
-  newInput.value = quantity;
-  newInput.setAttribute('min', 0);
-  let newDiv4 = document.createElement('div');
-  newDiv4.classList.add("col-lg-2", "text-center");
-  newDiv4.appendChild(newInput);
-
-
-
   let newPrice = document.createElement('p');
   newPrice.textContent =   `Prix : ${price / 100} €`;
+  let newDiv4 = document.createElement('div');
+  newDiv4.classList.add("col-lg-2", "text-center");
+  newDiv4.appendChild(newPrice);
+
+  let newInput = document.createElement('input');
+  newInput.value = quantity;
+  newInput.setAttribute('min', 1);
+  newInput.addEventListener("change", (e)=> {
+    console.log(price * e.target.value);
+    newPrice.textContent =(price * e.target.value);
+  });
   let newDiv5 = document.createElement('div');
   newDiv5.classList.add("col-lg-2", "text-center");
-  newDiv5.appendChild(newPrice);
+  newDiv5.appendChild(newInput);
 
 
   let newButton = document.createElement('button');
@@ -44,7 +62,7 @@ function creatSection(urlImage, nom, color, quantity, price) {
   newButton.textContent = "Supprimer";
   newButton.classList.add("btn", "btn-secondary");
   newButton.textContent = 'supprimer';
-  newButton.addEventListener('click', () => remove());
+  newButton.addEventListener('click', () => removeItem(id)); 
   let newDiv6 = document.createElement('div');
   newDiv6.classList.add("col-lg-2", "text-center");
   newDiv6.appendChild(newButton);
@@ -79,29 +97,6 @@ let panier = JSON.parse(panierString);
 
 for (let teddy of panier) {
   let totalPrice = teddy.price * teddy.quantity;
-  let articleActuel = creatSection(teddy.image, teddy.name, teddy.color, teddy.quantity, totalPrice);
+  let articleActuel = creatSection(teddy.id, teddy.image, teddy.name, teddy.color, teddy.quantity, totalPrice);
   listProdectAdded.appendChild(articleActuel);
-}
-
-
-function remove() {
-  let elem = document.getElementById('dummy');
-  elem.parentNode.removeChild(elem);
-  return false;
-}
-function pageInit() {
-  // Hook up the "remove dummy" button
-  let btn = document.getElementById('btnRemoveDummy');
-  if (btn.addEventListener) {
-      // DOM2 standard
-      btn.addEventListener('click', removeDummy, false);
-  }
-  else if (btn.attachEvent) {
-      // IE (IE9 finally supports the above, though)
-      btn.attachEvent('onclick', removeDummy);
-  }
-  else {
-      // Really old or non-standard browser, try DOM0
-      btn.onclick = removeDummy;
-  }
 }

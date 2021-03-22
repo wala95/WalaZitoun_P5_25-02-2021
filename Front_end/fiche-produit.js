@@ -64,7 +64,7 @@ fetch(teddyUrl)
 
 
     const buttonAdd = document.getElementById('buttonAdd');
-    buttonAdd.addEventListener('click', () => add(data.imageUrl, data.name, couleurs.value, quantite.value, data.price));
+    buttonAdd.addEventListener('click', () => add(data._id, data.imageUrl, data.name, couleurs.value, quantite.value, data.price));
     
     
 
@@ -74,12 +74,31 @@ fetch(teddyUrl)
 
 
 /* ------------------ */
+// vérifier si le produit existe
+function getExistingProduct (idProduct, colorProduct){
+
+
+let productsAdded = localStorage.getItem('basket');
+
+let productsArray = JSON.parse(productsAdded);
+
+  for(let i=0; i < productsArray.length; i++){
+    let item = productsArray[i];
+    if ((idProduct === item.id) && (colorProduct === item.color)) {
+      
+      return i
+    }
+  }
+  return null
+};
+
 // rajouter un produit dans le panier via le localstorage
-function add(imageProduct, nameProduct, colorProduct, quantityProduct, priceProduct) {
+function add(idProduct, imageProduct, nameProduct, colorProduct, quantityProduct, priceProduct) {
 
   // checker si il ya deja une variable panier, si oui on lui rajoute un produit si non on crée une n ouvelle variable et on lui rajoute ce produit la
   let panierString = localStorage.getItem('basket');
   let product = {
+    'id': idProduct,
     'image': imageProduct,
     'name': nameProduct,
     'color': colorProduct,
@@ -94,15 +113,31 @@ function add(imageProduct, nameProduct, colorProduct, quantityProduct, priceProd
     // seter le produit dans local storage 
     localStorage.setItem('basket', JSON.stringify(panier));
   }
+
   else {
-    // rendre le panierString un tableau
+
+
+// rendre le panierString un tableau
     let panier = JSON.parse(panierString);
+
+    let index = getExistingProduct(idProduct, colorProduct);
+
+    // element deja ajouté  dans le panier
+    if (index != null) {
+      panier[index].quantity = parseInt(quantityProduct) + parseInt(panier[index].quantity);
+
+
+      localStorage.setItem('basket', JSON.stringify(panier));
+    }
+    else {
+   
     // rajouter le produit au tableau 
     console.log(panier);
     panier.push(product);
 
     //  rafraichir le panier
     localStorage.setItem('basket', JSON.stringify(panier));
+    }
   }
 }
 
