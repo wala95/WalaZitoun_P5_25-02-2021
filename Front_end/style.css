@@ -12,6 +12,10 @@
 } 
 ul {
   list-style:none;
+}
+#list {
+  padding-left: 0;
+
   }
   li {
   margin:15px;
@@ -37,9 +41,6 @@ nav, footer {
 }
 #sommaire {
   border-right: 8px silver double;
-}
-article {
-  padding-top: 25px;
 }
 
 @media screen and (min-width: 1400px) {
@@ -80,7 +81,7 @@ article {
 
 #photoProduit {
   height: 150px;
-  width: 250px;
+  width: 230px;
 }
 
 #check {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco</title>
     <link rel="stylesheet" href="style.css" type='text/css' />
-    <script src="script.js" type='text/javascript' defer></script>
+    <script src="formulaire.js" type='text/javascript' defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
@@ -60,33 +60,33 @@
                         <img src="images/orinoco.png" alt="Site logo" id="logo" class="text-center">
                     </a>
                     <ul class="text-sm flex flex-column gap-xxs">
-                        <li class="flex justify-between"><i>Sous total : 98€</i></li>
+                        <li class="flex justify-between"><i id="sousTotal"></i></li>
                         <li class="flex justify-between"><i>Livraison offerte</i></li>
                         <li class="flex justify-between"><i> Délais de livraison : 3-4 jours ouvrés</i></li>
                         <hr>
-                        <li class="flex justify-between font-bold"><i>Prix total TTC : 98.00€</i></li>
+                        <li class="flex justify-between font-bold"><i id="total"></i></li>
                     </ul>
                 </div>
                 <div class="col-lg-8">
                     <div class="form-row">
                         <div class="col">
-                            <label for="validationDefault01">Nom</label>
-                            <input type="text" class="form-control" id="validationDefault01" placeholder="Nom" required>
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" placeholder="Nom" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label for="validationDefault02">Prénom</label>
-                            <input type="text" class="form-control" id="validationDefault02" placeholder="Prénom"
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" placeholder="Prénom"
                                 required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <label for="validationDefaultUsername">Adresse mail</label>
+                            <label for="mail">Adresse mail</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                                    <span class="input-group-text" id="mail">@</span>
                                 </div>
                                 <input type="text" class="form-control" id="validationDefaultUsername"
                                     placeholder="Adresse mail" aria-describedby="inputGroupPrepend2" required>
@@ -95,18 +95,18 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationDefault03">Ville</label>
-                            <input type="text" class="form-control" id="validationDefault03" placeholder="ville"
+                            <label for="ville">Ville</label>
+                            <input type="text" class="form-control" id="ville" placeholder="ville"
                                 required>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="validationDefault05">Code postal</label>
-                            <input type="text" class="form-control" id="validationDefault05" placeholder="Code postal"
+                            <label for="code">Code postal</label>
+                            <input type="text" class="form-control" id="code" placeholder="Code postal"
                                 required>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="validationDefault04">Pays</label>
-                            <input type="text" class="form-control" id="validationDefault04" placeholder="pays"
+                            <label for="pays">Pays</label>
+                            <input type="text" class="form-control" id="pays" placeholder="pays"
                                 required>
                         </div>
                     </div>
@@ -121,10 +121,8 @@
             </section>
             <section class="row ">
                 <div class="col text-center link">
-                    <a href="confirmation.html">
-                        <button type="button" class="btn btn-success btn-lg w-50 clearfix m-3" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-success btn-lg w-50 clearfix m-3" id="btnSend" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Valider</button>
-                    </a>
                 </div>
             </section>
         </form>

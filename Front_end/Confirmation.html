@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco</title>
     <link rel="stylesheet" href="style.css" type='text/css' />
-    <script src="script.js" type='text/javascript' defer></script>
+    <script src="confirmation.js" type='text/javascript' defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="shortcut icon" type="image/ico" href="images/favicon.ico">
@@ -53,15 +53,15 @@
 
                 <div class="text-component ">
                     <h1 class="text-xxxl mb-5">Merci pour votre commande !</h1>
-                    <p class="color-contrast-medium w-75 mx-auto">Bonjour "NAME", <br>
-                        Votre commande numéro 0000 a bien été comfirmée. <br>
+                    <p class="color-contrast-medium w-75 mx-auto">Bonjour <strong id="nomComplet"></strong>, <br>
+                        Votre commande numéro 92756 a bien été comfirmée. <br>
                         Nous vous remercions pour votre confiance et mettons dès à présent tout en oeuvre pour vous
                         faire parvenir votre commande dans les plus brefs délais.<br>
                         Voici le récapitulatif de votre commande :
                     </p>
                     <ul class="text-sm flex flex-column gap-xxs">
-                        <li class="flex justify-between"><i>Numéro de commande : 0000</i></li>
-                        <li class="flex justify-between"><i>Prix total TTC : 0000</i></li>
+                        <li class="flex justify-between"><i>Numéro de commande : 92756</i></li>
+                        <li class="flex justify-between"><i id='total'>Prix total TTC :</i></li>
                     </ul>
 
                     <a href="index.html"><button type="button"

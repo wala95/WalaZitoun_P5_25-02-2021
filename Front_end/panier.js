@@ -1,5 +1,39 @@
 "use strict";
 
+// si le panier est vide 
+
+let panierString = localStorage.getItem('basket');
+let panier = JSON.parse(panierString);
+
+
+
+if (panier === null || panier.length === 0){
+  console.log('je suis vide')
+
+  let newTitle = document.createElement('h2');
+  newTitle.classList.add( "text-center", "mt-3");
+  newTitle.textContent = 'Votre panier est vide';
+
+  let message = document.getElementById('listProdectAdded');
+  message.appendChild(newTitle);
+
+
+  let newButtonAccueil = document.createElement('a');
+  newButtonAccueil.href = "index.html";
+  newButtonAccueil.classList.add("btn", "btn-success", "btn-lg", "btn-block", "clearfix","w-50", "text-center","mt-5","mb-5");
+  newButtonAccueil.setAttribute('role', 'button');
+  newButtonAccueil.textContent = "Revenir vers la page d'accueil";
+
+
+
+  let buttonAccueil =document.getElementById("confirm")
+  buttonAccueil.appendChild(newButtonAccueil);
+
+
+  }
+else {
+
+
 function removeItem (idProduct){
 
 let productsAdded = localStorage.getItem('basket');
@@ -17,8 +51,9 @@ let productsArray = JSON.parse(productsAdded);
 
 }
 
-function creatSection(id, urlImage, nom, color, quantity, price) {
+function creatArticles(index, id, urlImage, nom, color, price, quantity) {
  
+
   let newImage = document.createElement('img');
   newImage.src = urlImage;
   newImage.id = "photoProduit";
@@ -47,10 +82,16 @@ function creatSection(id, urlImage, nom, color, quantity, price) {
 
   let newInput = document.createElement('input');
   newInput.value = quantity;
+  newInput.setAttribute('type','number');
   newInput.setAttribute('min', 1);
+  newInput.setAttribute('step','1');
+  newInput.setAttribute('onkeypress', 'return false');
+  newInput.classList.add("form-control");
   newInput.addEventListener("change", (e)=> {
-    console.log(price * e.target.value);
-    newPrice.textContent =(price * e.target.value);
+    newPrice.textContent =`Prix : ${(price/quantity/100 * e.target.value)} €`;
+    panier[index].quantity = e.target.value;
+    localStorage.setItem('basket', JSON.stringify(panier));
+    document.location.reload();
   });
   let newDiv5 = document.createElement('div');
   newDiv5.classList.add("col-lg-2", "text-center");
@@ -58,9 +99,8 @@ function creatSection(id, urlImage, nom, color, quantity, price) {
 
 
   let newButton = document.createElement('button');
-  newButton.setAttribute('type', "number");
   newButton.textContent = "Supprimer";
-  newButton.classList.add("btn", "btn-secondary");
+  newButton.classList.add("btn", "btn-secondary","w-100","align-items-center");
   newButton.textContent = 'supprimer';
   newButton.addEventListener('click', () => removeItem(id)); 
   let newDiv6 = document.createElement('div');
@@ -68,19 +108,20 @@ function creatSection(id, urlImage, nom, color, quantity, price) {
   newDiv6.appendChild(newButton);
 
 
-  let newSection = document.createElement('section');
-  newSection.classList.add("row", "border", "rounded");
+  let newArticle = document.createElement('article');
+  newArticle.classList.add("row", "border", "rounded");
 
 
-  newSection.appendChild(newDiv1);
-  newSection.appendChild(newDiv2);
-  newSection.appendChild(newDiv3);
-  newSection.appendChild(newDiv4);
-  newSection.appendChild(newDiv5);
-  newSection.appendChild(newDiv6);
+  newArticle.appendChild(newDiv1);
+  newArticle.appendChild(newDiv2);
+  newArticle.appendChild(newDiv3);
+  newArticle.appendChild(newDiv4);
+  newArticle.appendChild(newDiv5);
+  newArticle.appendChild(newDiv6);
 
-  return newSection;
-}
+  return newArticle;
+};
+
 
 
 let listProdectAdded = document.getElementById("listProdectAdded")
@@ -90,13 +131,59 @@ let listProdectAdded = document.getElementById("listProdectAdded")
 // L'objet Promise sert à réaliser des traitements de façon asynchrone. Une promesse représente une valeur qui peut être disponible maintenant, dans le futur voire jamais.
 
 
-let panierString = localStorage.getItem('basket');
+// let panierString = localStorage.getItem('basket');
 
-let panier = JSON.parse(panierString);
 
+// let panier = JSON.parse(panierString);
+
+
+  
 
 for (let teddy of panier) {
   let totalPrice = teddy.price * teddy.quantity;
-  let articleActuel = creatSection(teddy.id, teddy.image, teddy.name, teddy.color, teddy.quantity, totalPrice);
+  let articleActuel = creatArticles(panier.indexOf(teddy), teddy.id, teddy.image, teddy.name, teddy.color, totalPrice, teddy.quantity);
   listProdectAdded.appendChild(articleActuel);
 }
+
+
+let newButtonConfirm = document.createElement('button');
+newButtonConfirm.classList.add("btn", "btn-success", "btn-lg","w-50", "btn-block", "clearfix", "text-center","mt-5");
+newButtonConfirm.setAttribute('type', 'button');
+newButtonConfirm.textContent = "Valider votre panier";
+
+let buttonConfirm  = document.getElementById("confirm")
+buttonConfirm.appendChild(newButtonConfirm);
+
+
+newButtonConfirm.addEventListener('click', ()=>{
+  let totalPrice = {
+    total :  totaltPriceProducts(panier)/100,
+  }
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    console.log(totalPrice)
+   window.location.href='formulaire.html';
+  
+});
+}
+
+
+// prix total
+
+
+function totaltPriceProducts(tab){
+    let sum = 0;
+  for ( let teddy of tab){
+    sum = sum +  teddy.price * teddy.quantity;
+  }
+    return sum;
+}
+  
+let sousTotal = document.getElementById("sousTotal")
+sousTotal.textContent = `Sous total : ${totaltPriceProducts(panier)/100} €`;
+
+
+let total = document.getElementById("total")
+total.textContent = `Prix total TTC : ${totaltPriceProducts(panier)/100} €`;
+
+
+

@@ -26,8 +26,8 @@ function creatArticle(urlImage, nom, price, listColor, button, link){
   let newButton = document.createElement('a');
   newButton.href = button;
   newButton.classList.add("btn", "btn-secondary");
-  newButton.setAttribute('role', 'button')
-  newButton.textContent = 'Afficher plus'
+  newButton.setAttribute('role', 'button');
+  newButton.textContent = 'Afficher plus';
 
   let newCardBodyDiv = document.createElement('div');
   newCardBodyDiv.classList.add("card-body");
@@ -60,7 +60,7 @@ function creatArticle(urlImage, nom, price, listColor, button, link){
   return newArticle;
 }
 
-let section = document.getElementById("sectionForArtticles")
+
   
 // envoyer une requette GET à l'API(web service) sur l'URL teddiesUrl pour récupérer les données 
 // Le retour de la méthode fetch une est Promise 
@@ -84,6 +84,7 @@ fetch(teddiesUrl)
   .then (teddiesList => {
         for (let teddy of teddiesList){ 
           let articleActuel = creatArticle(teddy.imageUrl, teddy.name, `Prix : ${teddy.price/100} €`, `${teddy.colors.length} Couleurs disponibles`, `fiche_produit.html?produit=${teddy._id}`, `fiche_produit.html?produit=${teddy._id}`);
+          let section = document.getElementById("sectionForArtticles");
           section.appendChild(articleActuel) ;
   }})
 

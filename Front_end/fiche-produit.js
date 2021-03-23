@@ -28,7 +28,6 @@ const quantite = document.getElementById('quantite')
 // L'objet Promise sert à réaliser des traitements de façon asynchrone. Une promesse représente une valeur qui peut être disponible maintenant, dans le futur voire jamais.
 
 
-
 function creatOptions(colors) {
   for (let i of colors) {
     let newOption = document.createElement('option');
@@ -75,12 +74,18 @@ fetch(teddyUrl)
 
 /* ------------------ */
 // vérifier si le produit existe
-function getExistingProduct (idProduct, colorProduct){
 
 
 let productsAdded = localStorage.getItem('basket');
 
 let productsArray = JSON.parse(productsAdded);
+
+function getExistingProduct (idProduct, colorProduct){
+
+
+// let productsAdded = localStorage.getItem('basket');
+
+// let productsArray = JSON.parse(productsAdded);
 
   for(let i=0; i < productsArray.length; i++){
     let item = productsArray[i];
@@ -93,6 +98,9 @@ let productsArray = JSON.parse(productsAdded);
 };
 
 // rajouter un produit dans le panier via le localstorage
+
+
+
 function add(idProduct, imageProduct, nameProduct, colorProduct, quantityProduct, priceProduct) {
 
   // checker si il ya deja une variable panier, si oui on lui rajoute un produit si non on crée une n ouvelle variable et on lui rajoute ce produit la

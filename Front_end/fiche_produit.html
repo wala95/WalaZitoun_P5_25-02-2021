@@ -48,11 +48,16 @@
         </div>
     </nav>
     <!-- BODY -->
-    <main>
-
+    <main class="container">
+        <section class="row">
+            <div class="col">
+                <div class="jumbotron text-center p-5 mb-5 rounded" id="jumbotron">
+                    <h1>Votre produit</h1>
+                </div>
+            </div>
+        </section>
 
         <section class="container">
-            <a href="index.html" class="text-secondary">Revenir vers la page d'accueil</a>
             <div class="row  ">
                 <div class="col-12 col-lg-6">
                     <img src="" alt="photo du produit" class="img-thumbnail " id="teddyImage">
@@ -65,7 +70,7 @@
                     <p class="card-text" id="teddyDescription">DESCRIPTION</p>
                     <div class="form-group">
                         <label for="quantite">Quantité :</label><br>
-                        <input id="quantite" value="1" type="number" min="1" step="1" class="form-control" />
+                        <input id="quantite" value="1" type="number" min="1" step="1" class="form-control" onkeypress="return false" />
                     </div><br>
                     <div class="form-row align-items-center">
                         <div class="form-group">
