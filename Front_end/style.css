@@ -20,11 +20,11 @@ ul {
   li {
   margin:15px;
   }
-  #logo1 {  
+  #logo {  
     width:  200px;
     height: 70px;
   }
-#logo {  
+#logoOrinoco {  
   width:  100%;
   height: auto;
 }
@@ -34,6 +34,9 @@ nav, footer {
 }
 #jumbotron {
   background-color: #d7aace;
+}
+article {
+  margin-bottom: 25px;
 }
 #alert {
   background-color:#f3e9f1;
