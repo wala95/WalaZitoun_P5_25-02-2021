@@ -22,7 +22,7 @@ function creatArticle(urlImage, nom, price, listColor, button, link) {
 
   let newButton = document.createElement('a');
   newButton.href = button;
-  newButton.classList.add("btn", "btn-success");
+  newButton.classList.add("btn", "w-75", "btn-success");
   newButton.setAttribute('role', 'button');
   newButton.textContent = 'Afficher plus';
 

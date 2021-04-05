@@ -1,7 +1,6 @@
 #panier {  
   width: 50px;
   height: 50px;
-  
 }
 .link {
   text-decoration: none;
@@ -19,6 +18,9 @@ ul {
   }
   li {
   margin:15px;
+  }
+  li:hover {
+    color: #f3e9f1;
   }
   #logo {  
     width:  200px;
@@ -72,15 +74,6 @@ article {
   }
 } 
 
-
-
-
-@media screen and (min-width: 1000px)  {
-  
-  #wala {
-    margin: auto;
-  }
-}
 
 #photoProduit {
   height: 150px;
