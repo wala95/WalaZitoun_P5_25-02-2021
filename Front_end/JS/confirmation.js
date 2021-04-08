@@ -15,4 +15,6 @@ let priceTotal = JSON.parse(totalPriceProducts);
 let total = document.getElementById("total");
 total.textContent = `Prix total TTC : ${(priceTotal.total)} €`;
 
-localStorage.clear();
+localStorage.removeItem('basket');
+localStorage.removeItem('preOrder');
+localStorage.removeItem('clientOrder');
