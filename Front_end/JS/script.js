@@ -1,4 +1,5 @@
 "use strict";
+let section = document.getElementById("sectionForArtticles");
 
 // Fonction pour créer l'article
 function creatArticle(urlImage, nom, price, listColor, button, link) {
@@ -51,7 +52,6 @@ function creatArticle(urlImage, nom, price, listColor, button, link) {
   let newArticle = document.createElement('article');
   newArticle.classList.add("col-12", "col-lg-4");
 
-
   newArticle.appendChild(newLink);
 
   return newArticle;
@@ -83,7 +83,6 @@ fetch(teddiesUrl)
   .then(teddiesList => {
     for (let teddy of teddiesList) {
       let articleActuel = creatArticle(teddy.imageUrl, teddy.name, `Prix : ${teddy.price / 100} €`, `${teddy.colors.length} Couleurs disponibles`, `fiche_produit.html?produit=${teddy._id}`, `fiche_produit.html?produit=${teddy._id}`);
-      let section = document.getElementById("sectionForArtticles");
       section.appendChild(articleActuel);
     }
   })

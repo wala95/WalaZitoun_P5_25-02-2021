@@ -19,9 +19,7 @@ ul {
   li {
   margin:15px;
   }
-  li:hover {
-    color: #f3e9f1;
-  }
+  
   #logo {  
     width:  200px;
     height: 70px;

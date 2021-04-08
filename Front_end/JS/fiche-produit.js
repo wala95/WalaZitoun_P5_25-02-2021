@@ -9,7 +9,6 @@ const couleurs = document.getElementById('colors');
 const quantite = document.getElementById('quantite')
 const buttonAdd = document.getElementById('buttonAdd');
 
-
 // créer la liste des couleurs
 function creatOptions(colors) {
   for (let i of colors) {
@@ -55,6 +54,7 @@ fetch(teddyUrl)
   
 
 
+  
 /* ---------- Rajouter un produit dans le localestorage -------- */
 
 // vérifier si le produit existe
